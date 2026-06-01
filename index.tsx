@@ -1,4 +1,4 @@
 import "./styles2.css";
-import { boot } from "@tinkerable/internal/boot";
+import { boot } from "@immediately-run/sdk/boot";
 
 boot();

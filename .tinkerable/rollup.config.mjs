@@ -5,7 +5,7 @@ import { nodeResolve } from '@rollup/plugin-node-resolve';
 
 const config = {
   input: "index.tsx",
-  external: ["@tinkerable/internal/v1", /node_modules/],
+  external: ["@immediately-run/sdk/v1", /node_modules/],
   output: {
     dir: "build"
   },

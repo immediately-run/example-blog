@@ -1,7 +1,9 @@
-import {Include} from "@tinkerable/internal/components/Include"
-import {Link} from "@tinkerable/internal/components/MDXComponents"
-import {useMetadataQuery, useFileMetadata} from "@tinkerable/internal/hooks"
+import {Include} from "@immediately-run/sdk/components/Include"
+import {Link} from "@immediately-run/sdk/components/MDXComponents"
+import {useMetadataQuery, useFileMetadata} from "@immediately-run/sdk/hooks"
 import { useCallback, useMemo } from "react";
+
+declare const module: any;
 
 export type Metadata = Record<string, any>;
 export type FilesMetadata = Record<string, Metadata>;
