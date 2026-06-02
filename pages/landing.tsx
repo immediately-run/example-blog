@@ -67,7 +67,7 @@ const Hompage = () => {
 
       <aside className="sidebar">
         <h3>Popular Posts</h3>
-        <Include filename="/pages/popular_posts.mdx" baseModule={module}/>
+        <Include filename="/app/pages/popular_posts.mdx" baseModule={module}/>
 
         <h3 style={{ marginTop: "2rem" }}>Categories</h3>
         <div
