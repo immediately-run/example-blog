@@ -1,6 +1,6 @@
-import {Include} from "@immediately-run/sdk/components/Include"
-import {Link} from "@immediately-run/sdk/components/MDXComponents"
-import {useMetadataQuery, useFileMetadata} from "@immediately-run/sdk/hooks"
+import { Include } from "@immediately-run/sdk/components/Include";
+import { Link } from "@immediately-run/sdk/components/MDXComponents";
+import { useMetadataQuery, useFileMetadata } from "@immediately-run/sdk/hooks";
 import { useCallback, useMemo } from "react";
 
 declare const module: any;
@@ -34,14 +34,16 @@ export const Articles = () => {
       Object.entries(filesMetadata)
         .filter(([, metadata]) => metadata?.tags?.length > 0)
         .map(([path]) => path),
-    []
+    [],
   );
   const results = useMetadataQuery(queryFn);
   const articleCards = useMemo(() => {
-    if (!results || !('result' in results)) {
+    // The query now returns the matched entries directly ({ path, meta }[]);
+    // a throwing query resolves to { error }.
+    if (!Array.isArray(results)) {
       return null;
     }
-    return results.result.map((path:string) => <ArticleCard key={path} path={path} />);
+    return results.map(({ path }) => <ArticleCard key={path} path={path} />);
   }, [results]);
   const renderedArticles = useMemo(() => {
     return (
@@ -67,7 +69,7 @@ const Hompage = () => {
 
       <aside className="sidebar">
         <h3>Popular Posts</h3>
-        <Include filename="/app/pages/popular_posts.mdx" baseModule={module}/>
+        <Include filename="/app/pages/popular_posts.mdx" baseModule={module} />
 
         <h3 style={{ marginTop: "2rem" }}>Categories</h3>
         <div
