@@ -1,3 +1,4 @@
+import "./styles2.css";
 import type { JSX } from "react";
 import { Suspense, lazy } from "react";
 import { MDXProvider } from "@immediately-run/sdk";
