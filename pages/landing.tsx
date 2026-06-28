@@ -112,7 +112,7 @@ export const ArticlesList = ({
   const allTags = getQueryArray(allTagsResult);
   useMemo(() => {
     if (allTags && allTags.length > 0) {
-      onTagsLoaded(allTags);
+      onTagsLoaded(allTags.map((entry: any) => entry.path));
     }
   }, [allTags, onTagsLoaded]);
 
@@ -156,7 +156,7 @@ export const ArticlesList = ({
     if (!filteredPaths || filteredPaths.length === 0) {
       return <div className="no-results">No entries found matching your criteria.</div>;
     }
-    return filteredPaths.map((path) => <ArticleCard key={path} path={path} />);
+    return filteredPaths.map((entry: any) => <ArticleCard key={entry.path} path={entry.path} />);
   }, [filteredPaths]);
 
   return <section className="posts-grid" style={{ gridColumn: 1 }}>{cards}</section>;
